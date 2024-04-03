@@ -1,0 +1,852 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: transparent;
+  background-image: url('Images/background.jpg'); /* Replace with the path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% auto;
+  margin: 0;
+  padding: 0;  
+  /* margin-right: -10vw; */
+  overflow-x: hidden;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header {
+  display: grid; 
+    grid-template-columns: auto 1fr auto; 
+    grid-template-areas: 
+      ". organisation-name ."
+      "podium church-name login-register"; 
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+     /* Set the background color with transparency */
+    /* backdrop-filter: blur(1.5px);  */
+    /* -webkit-backdrop-filter: blur(1.5px);  */
+    z-index: 999;    
+    opacity: 1;
+    height: 5.8vw;
+    /* margin-right: -1vw; */
+    /* width: 100%; */
+    /* border: 0.6vw solid #d50505; */
+    /* overflow-x: hidden; */
+}
+
+.header-top {
+  background-color: #0a0a0ad9;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.1vw;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+  border: 1px solid #ffffffc2;
+}
+
+
+model-viewer {
+  display: inline-block;
+  --progress-bar-color: transparent; 
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.podium { 
+  grid-area: podium;
+  width: 10vw;
+  height: 4vw; 
+  margin-left: -1vw; 
+  margin-top: -0.3vw;
+  animation: pulsate 2s infinite;
+  position: absolute;
+}
+
+/* .ham { 
+  grid-area: podium;
+  width: 3vw;
+  height: 1.5vw; 
+  margin-left: 0.1vw; 
+  margin-top: -2.2vw;
+ 
+  position: absolute;
+  z-index: 1001;   
+  cursor: pointer;
+} */
+
+
+
+/* .menu-text { 
+  grid-area: podium;
+ font-size: 1.3vw;
+  margin-left: 3vw; 
+  margin-top: -2.2vw;
+  animation: pulsate 2s infinite;
+  position: absolute;
+  z-index: 1001; 
+  color: white;
+  font-weight: bold;
+} */
+
+
+
+/* .podium:hover {
+  animation: resizeAnimation 1s infinite;
+} */
+
+@keyframes resizeAnimation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes idleAnimation {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(45deg);
+  }
+}
+
+.logoo{
+  width: 0.9vw;
+  height: 2vw; 
+  background-color: transparent;
+  margin-top: -0.9vw;
+  margin-left: 2.85vw;
+  margin-right: 0.8vw;
+  z-index: 1001; 
+}
+  
+.organisation-name,
+.organisation-name-short {
+  grid-area: organisation-name ;
+  /* margin-top: 0.5vw;  */
+  font-size: 1.1vw;
+  text-align: center; 
+  font-weight: bold; 
+  /* font-family: 'Algerian Regular', serif; */
+    /* color: #e2c843;
+    text-shadow: 
+    -0.5px -0.5px 0 #000, 
+    0.5px -0.5px 0 #000, 
+    -0.5px 0.5px 0 #000, 
+    0.5px 0.5px 0 #000; */
+   
+    /* color: #3b86b4; */
+    color: rgba(255, 255, 255, 0.85);
+    /* text-shadow: 
+       -0.5px -0.5px 0 #000, 
+    0.5px -0.5px 0 #000, 
+    -0.5px 0.5px 0 #000, 
+    0.5px 0.5px 0 #000; */
+    z-index: 1001; 
+}
+
+.organisation-name {
+  margin-top: 0.76vw;
+}
+
+.organisation-name span,
+.organisation-name-short span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.organisation-name span {
+  margin-top: -0.7vw;
+}
+
+.organisation-name span:first-child {
+  margin-right: 0.5vw;
+}
+
+.organisation-name span:nth-child(2) {
+  margin-right: -3.2vw;
+}
+
+.organisation-name span:nth-child(4) {
+  margin-left: -1.1vw;
+}
+
+.organisation-name span:last-child {
+  margin-left:  0.5vw;
+}
+
+.organisation-name img,
+.organisation-name-short img {  
+  width: 1.7vw;
+  height: 1.7vw; 
+  background-color: transparent;
+  margin-top: -2vw;
+  margin-left: 2.6vw;
+  margin-right: 0.55vw;
+  z-index: 1001; 
+}
+
+.organisation-name,
+.church-name {    
+  margin-right: -11.3vw;
+}
+
+/* .organisation-name-img,
+.organisation-name-short-img {     
+  width: 3vw;     
+  margin-top: -0.85vw;
+  margin-right: -1vw;
+  margin-left: -1vw; 
+  vertical-align: middle;  
+}
+
+.organisation-name-img {
+  --poster-color: transparent;
+  --progress-bar-color: transparent; 
+  background-color: transparent;
+}
+
+.organisation-name-short-img {
+  --poster-color: transparent;
+  --progress-bar-color: transparent; 
+  background-color: transparent;
+} */
+
+.church-name {  
+  grid-area: church-name; 
+  font-size: 3.4vw;
+  /* width: 100vw; */
+  margin-top: -0.4vw; 
+  text-align: center;
+  font-weight: bold;
+  /* font-family: 'Algerian Regular', serif; */
+  /* font-family: 'Fette Fraktur', serif; */
+  /* Algerian Regular Fette Fraktur*/
+  /* color: #28317c;
+  text-shadow: 
+    -0.5px -0.5px 0 #fff, 
+    0.5px -0.5px 0 #fff, 
+    -0.5px 0.5px 0 #fff, 
+    0.5px 0.5px 0 #fff; */
+    /* color: #e2c743e7; */
+    color: rgba(255, 255, 255, 0.85);
+    /* text-shadow: 
+    -0.5px -0.5px 0 #000, 
+    0.5px -0.5px 0 #000, 
+    -0.5px 0.5px 0 #000, 
+    0.5px 0.5px 0 #000; */
+}
+
+.login-register {
+  grid-area: login-register;
+  margin-top: -7vw;
+  margin-right: 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8vw;
+  z-index: 1001; 
+}
+
+.login,
+.register {
+  /* padding: 0.3vw 0.5vw; */
+  margin-top: -9vw;
+  color: #000000;
+}
+
+.login-register button {
+  /* background-color: rgba(255, 255, 255, 0.493); */
+  /* background-color: #3b86b47f; */
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  margin-top: 2vw;
+  margin-right: -5vw;
+  font-weight: bold; 
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 0.8vw;
+  font-weight: bold;
+  /* color: #000000;  */
+  /* color: #e2c743; */
+  color: rgba(255, 255, 255, 0.7);
+  /* border-radius: 5px;  */
+}
+
+.login-register .line {
+  width: 0.1vw;
+  height: 1.5vw;
+  background-color: #fff;
+  margin-right: -1.3vw;
+  margin-left: -1.3vw; 
+}
+
+.login,
+.register,
+.login-register .line {
+  margin-top: -1vw;
+}
+
+.organisation-name-short {
+  display: none;
+}
+
+@media (min-width: 601px) {
+  
+}
+
+/* @media (max-width: 600px) {
+  .header {
+    height: 14vw;
+    grid-template-columns: auto 1fr auto; 
+    grid-template-areas: 
+    "model organisation-name-short login-register" 
+    ". church-name login-register";    
+  }
+
+  model-viewer{
+    grid-area: model;
+    cursor: pointer;   
+    width: 10vw;
+    height: 10vw;   
+    margin-left: 1.3vw;
+    margin-top: 1.5vw;   
+  }
+
+  .hamburger img {
+    width: 11vw;    
+    margin-top: 3.5vw;
+  }
+
+  .organisation-name-short {
+    grid-area: organisation-name-short;
+    display: block;
+  }
+
+  .organisation-name-short img {    
+    width: 8vw;
+    margin-right: -2vw;
+  }
+
+  .organisation-name-short span {    
+    font-size: 5vw;
+    margin-top: -0.1vw;
+    margin-left: 0.5vw;
+  }
+
+  .church-name {
+    font-size: 6vw;
+    margin-top: -2vw;
+    margin-left: -5vw;
+  }
+
+  .login-register button { 
+    font-size: 3.7vw;    
+    margin-right: 2vw;  
+    margin-top: 2vw;
+  }
+
+  .login-register .line,
+  .register,
+  .organisation-name {    
+    display: none;
+  }
+
+} */
+
+/* @font-face {
+  font-family: 'Fette Fraktur';
+  src: url('Fonts/fette-unz-fraktur.ttf');  
+}
+
+@font-face {  
+  font-family: 'Algerian Regular';
+  src: url('Fonts/Algerian Regular.ttf');    
+} */
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: 9999;
+  display: none;
+}
+
+.menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent; 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+      "grid-container"
+      "video-container"
+      "book-container"; 
+  width: 100%;  
+  margin-left: 9vw;
+  user-select: none;
+}
+
+.grid-container {
+  grid-area: grid-container;
+  display: grid;
+  grid-template-columns: auto auto;  
+  grid-template-areas: 
+      "menu-button-container1 close-button"
+      "menu-button-container2 close-button";
+  background-color: transparent;
+  width: 100%;
+  margin-top: -12vw;
+  margin-left: 2vw;
+}
+
+.menu-button-container1,
+.menu-button-container2 {
+   margin-left: 25vw;
+}
+
+.menu-button-container1 {
+  grid-area: menu-button-container1;
+  margin-top: 4vw;
+}
+
+.menu-button-container2 {
+  grid-area: menu-button-container2;
+  margin-top: -2vw;
+}
+
+.menu-button,
+.close-button {
+  /* background-color: #3b86b428; */
+  background-color: rgba(0, 0, 0, 0.142);
+  
+  /* color: #e2c743;  */
+  /* border: 2px solid #e2c743; Add a border for contrast */
+ color: rgba(255, 255, 255, 0.8);
+  padding: 0.2vw 0.5vw; /* Increase padding for better spacing */
+  border-radius: 0.3vw; /* Slightly rounded corners */
+  font-size: 1.2vw; /* Reduce font size for better proportion */
+  font-weight: bold;
+  /* text-transform: uppercase;  */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 1vw;
+  user-select: none;
+}
+
+.menu-button:hover {
+  /* background-color: #3b86b4; 
+  color: #e2c743;  */
+  background-color: #fcfcfc;
+  color:  #1a1a1adc; 
+}
+
+.close-button:hover {
+  background-color: rgba(255, 0, 0, 0.938); /* Change the background color on hover for an interactive feel */
+}
+
+/* Optional: If you want to add some spacing between buttons */
+.menu-button + .menu-button {
+  margin-left: 0.2vw;
+}
+
+.close-button {
+  grid-area: close-button;  
+  background-color: rgba(209, 51, 23, 0.5);
+  color: #000;
+  width: 2vw;
+  height: 2vw;
+  margin-left: -25.4vw;
+  margin-top: 4vw;
+  padding: 0.05vw 0.05vw;
+  padding-bottom: 0.1vw;
+  padding-top: 0.04vw;
+}
+
+.video-container video,
+.book-container {
+  margin-left: -8vw;
+}
+
+.video-container {
+  grid-area: video-container; 
+  z-index: 2;  
+}
+
+.video-container video{   
+  width: 18vw;
+  margin-top: 0vw;
+  margin-left: 33vw;
+  border: 2px solid #5e6b94;
+  object-fit: cover;
+  /* transform: skewY(1deg); */
+}
+
+.book-container {
+  grid-area: book-container;
+  width: 100%;
+  background-color: transparent;
+}
+
+.book-container img {
+  position: absolute;
+  align-items: center;
+  height: 10vw;
+  width: 18vw;
+  z-index: 1;
+  margin-top: -0.5vw;
+  margin-left: 41.1vw; 
+  background-color: transparent;
+  display: none;
+}
+
+.book {
+  position: absolute;
+  z-index: 0;
+  height: 45vw;
+  width: 100%;
+  margin-top: -13vw;
+  margin-left: 1.8vw;
+  background-color: transparent;
+  /* animation: enlargeAndRotate 1.5s linear 1; */
+}
+
+.hero-container {
+  min-height: 100vh;
+  background-color: #963030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.footer {
+  background-color: slategray;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  grid-column: 1 / -1;
+}
+
+/* CSS for the footer links */
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* CSS for the footer social icons */
+.footer .social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+  font-size: 20px;
+}
+
+.space {
+  grid-column: 1 / -1;
+}
+
+#line1 {
+  width: 80vw;
+  margin-top: 0.45vw;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1100;
+  top: 0;
+  margin-top: 1.2vw; 
+  height: 45vmax; 
+  width: 100%;
+  /* border: 1vw solid #d50505; */
+}
+
+.mid-container1,
+.mid-container2,
+.mid-container3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1100;
+  top: 0;
+  margin-top: 0vw; 
+  height: 25vw; 
+  /* border: 1vw solid #d50505; */
+}
+
+.mission,
+.testimony,
+.location {
+  height: 23vw;
+  width: 96.3vw;
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  top: 0; 
+  background-color: rgba(0, 0, 0, 0.526);
+  border: 0.4vw outset rgba(0, 0, 0, 0.784);
+  /* border: 1vw solid #d50505;  */
+  border-radius: 1%; 
+  box-shadow: 5px 5px 10px #000000f3;
+  clip-path: polygon(5% 0, 0 15%, 0 85%, 5% 100%, 95% 100%, 100% 85%, 100% 15%, 95% 0, 70% 0, 65% 15%, 35% 15%, 30% 0);
+}
+
+/* .mission-title {
+  height: 12.5vw;
+  width: 65vw;
+  border: 0.4vw inset rgba(0, 0, 0, 0.784);
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: -0.4vw;  
+  background-color: rgba(0, 0, 0, 0.526);
+} */
+
+.top-container > * {
+  margin-left: 2vw; /* Adjust the margin value */
+}
+
+.top-left-container,
+.top-right-container {
+  margin-top: 7.7vw;
+}
+
+
+.top-left-container {
+  z-index: 1099;
+  position: absolute;
+  height: 36.93vw;
+  width: 64.97vw;
+  top: 0;
+  left:0;  
+  margin-left: 1.1vw;
+  border: 0.5vw outset rgba(0, 0, 0, 0.773); 
+  /* border: 1vw solid #d50505;  */
+  border-radius: 1%;  
+  background-color: rgba(252, 252, 252, 0.184);  
+  box-shadow: 5px 5px 10px #000000f3;
+}
+
+.slide {
+  position: absolute;
+  width: 64vw;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background-color: transparent;  
+  /* border: 0.1vw solid #ccc; */
+  /* border-radius: 50%; */
+  /* backdrop-filter: blur(2px);  */  
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.video-control-container {
+  display: flex;
+  flex-direction: row;
+  bottom: 0;  
+  left: 0; 
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  height: 2vw;
+  width: 15vw;   
+  align-items: center;
+  margin-left: 47vw;
+  /* border: 0.5vw solid #cf0a21; */
+}
+
+.video-control-container > * {
+margin-left: 0.4vw;
+}
+
+.video-buttons > * {
+  margin-left: 1.3vw;
+}
+
+/* .dots-container,
+.prev-arrow,
+.next-arrow,
+.watch-button {
+  right: 0;
+} */
+
+.dots-container,
+.video-buttons {
+  display: flex;
+  /* border: 0.2vw solid #00b6e9; */
+}
+
+.dot {
+  width: 0.7vw;
+  height:  0.7vw;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.arrow-button {
+  width: 1.7vw;
+  height: 1.5vw;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.534);
+  border-radius: 30%;  
+  cursor: pointer;
+  font-size: 1.3vw;
+  /* font-weight: bold; */
+  color: #ffffffa9;
+  user-select: none; 
+  border: 0.01vw solid #ccc;
+  padding-bottom: 1.5vw;
+  padding-top: -1vw;
+}
+
+.arrow-button:hover {
+  background-color: #ffffffa9;
+  color: rgba(0, 0, 0, 0.534);
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+.watch-button {     
+  padding: 0.25vw 0.5vw;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 0.3vw;
+  cursor: pointer;
+  position: absolute; 
+  font-size: 1vw;
+  margin-top: -0.9vw;
+  /* margin-left: 50.5vw; */
+}
+
+.watch-button.active {
+  background-color: #ccc;
+  color: #333;
+}
+
+.watch-button:hover {
+  background-color: #ccc;
+  color: #333;
+}
+
+.top-right-container,
+.announcement-container,
+.stream-container, 
+.announcements,
+.streams {
+  z-index: 1099;
+  top: 0; 
+  right: 0; 
+  width: 29vw;    
+  height: 20vw;
+  /* background-color: rgb(255, 255, 255); */
+  /* background-color: transparent; */
+  font-size: 2vw;  
+}
+
+.top-right-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  height: 37vw;
+  width: 29vw; 
+  margin-right: 1.5vw;
+  /* border: 1vw solid #d50505; */
+  /* border: 0.4vw outset rgba(230, 4, 4, 0.784); */
+}
+
+.top-right-container > * {
+  margin-bottom: 2vw; /* Adjust the margin value */
+}
+
+.announcement-container {  
+  z-index: 1002;
+  background-color: rgba(0, 0, 0, 0.526);
+  border: 0.4vw outset rgba(0, 0, 0, 0.784);
+  border-radius: 2.5%;  
+  box-shadow: 5px 5px 10px #000000f3;  
+}
+
+.announcements {  
+  /* border: 0.4vw outset rgba(4, 65, 232, 0.784); */ 
+  height: 19vw; 
+  background-color: transparent;
+   /* background-color: transparent; */ 
+}
+
+.announcements span{
+  z-index: 1002;
+}
+
+.stream-container {  
+  z-index: 1002;
+  height: 15.1vw;  
+  background-color: rgba(0, 0, 0, 0.526);
+  border: 0.4vw outset rgba(0, 0, 0, 0.784);
+  border-radius: 2.5%;  
+  box-shadow: 5px 5px 10px #000000f3;  
+}
+
+.streams { 
+  background-color: transparent; 
+  /* border: 0.4vw outset rgba(231, 6, 231, 0.784); */
+  border-radius: 2.5%;
+  /* background-color: rgba(0, 0, 0, 0.526); */    
+  box-shadow: none;  
+}
+
+
+#height-number {
+  display: none;
+}
+
+#slider {
+  display: none;
+}
+
+
+
+
+@keyframes pulsate {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}

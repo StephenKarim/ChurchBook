@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sermons</title>
+  <link rel="stylesheet" href="sermons_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="sermons_func.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.min.js"></script>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+</head>
+<body>
+    <header class="header"> 
+      <model-viewer src="Models/bible_on_stand/scene.gltf" alt="A 3D model of a podium" shadow-intensity="1"
+       auto-rotate rotation-per-second="80deg" auto-rotate-delay="30" ar >
+      </model-viewer>
+        <div class="organisation-name">
+          <span>INTERNATIONAL</span> 
+          <span>PENTEC</span>
+          <img src="Images/logotrans.png" alt="Logo" />
+          <span>STAL</span> 
+          <span>ASSEMBLY</span>
+        </div>
+        <div class="church-name">
+          <span>Covenant</span> 
+          <span>City</span> 
+          <span>Church</span>
+        </div>
+        <div class="organisation-name-short">
+          <img src="Images/logotrans.png" alt="Logo" />
+          <span>IPA</span>
+        </div>
+        <div class="login-register">
+          <button class="login">Login</button>
+          <div class="line"></div>
+          <button class="register">Register</button>
+        </div>
+    </header>
+
+    <div class="hero">
+      <video autoplay loop muted id="background-video">
+        <source src="Videos/videop.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <hr id="line1">
+
+    
+    <div class="Streaming-platforms">
+      <span>We are live on</span>
+      <img id="youtube-logo" src="Images/you.png" alt="Logo" />
+      <img id="facebook-logo"src="Images/face.png" alt="Logo" />
+      <span>Sundays @ 8:00am</span>
+      <span>and</span>
+      <span>Wednesdays @ 7:00pm</span>
+    </div>
+
+    <div class="section">
+      <span>Recordings</span>     
+      <input type="text" id="search-input" placeholder="Search">
+      <button type="button" onclick="searchVideos()">Search</button>
+    </div>
+    
+    <div class="feed">
+      <div class="video-container">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/p4zUuW_ycQw" frameborder="0" allowfullscreen ></iframe>
+        <div class="video-details">
+          <div class="video-title">Video Title 1</div>
+          <div class="video-views">1,000 views</div>
+          <div class="video-posted">1 week ago</div>
+        </div>
+      </div>
+  
+      <div class="video-container">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sPPfTtcIjS0" frameborder="0" allowfullscreen></iframe>
+        <div class="video-details">
+          <div class="video-title">Video Title 2</div>
+          <div class="video-views">500 views</div>
+          <div class="video-posted">2 weeks ago</div>
+        </div>
+      </div>
+  
+      <div class="video-container">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dHPF-R_aw1o" frameborder="0" allowfullscreen></iframe>
+        <div class="video-details">
+          <div class="video-title">Video Title 3</div>
+          <div class="video-views">800 views</div>
+          <div class="video-posted">3 weeks ago</div>
+        </div>
+      </div>
+
+      <div class="overlay" id="menuOverlay">
+        <div class="menu">
+          <ul>
+            <li><a href="home.html">Home</a></li>           
+            <li><a href="hrograms.html">Programs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="donations.html">Donations</a></li>
+            <li><a href="aboutUS.html">About US</a></li>
+            <li><button id="closeOverlayButton" class="close-button">X</button></li>
+          </ul>
+        </div>
+      </div>
+  
+      <section class="space">
+        <span></span>
+      </section>
+   
+
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Events</a>
+      <a href="#">Ministries</a>
+      <a href="#">Sermons</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-info">
+      &copy; 2023 Church Name. All rights reserved. | Address, City, State | Phone: (123) 456-7890
+    </div>
+  </footer>
+
+    
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+<!-- Loads <model-viewer> for old browsers like IE11: -->
+  <script nomodule
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+  </script>
+</body>
+</html>

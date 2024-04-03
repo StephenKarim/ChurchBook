@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Programs</title>
+  <link rel="stylesheet" href="programs_styles.css"> 
+  <script src="index_func.js"></script>  
+  <script src="webcomponents-loader.js"></script> 
+  <script type="module" src="model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</head>
+    <header class="header"> 
+      <model-viewer async src="Models/logo/logo.gltf" alt="A 3D model of a podium" shadow-intensity="1"
+       rotation-per-second="80deg" auto-rotate-delay="30" loading="lazy">
+      </model-viewer>
+        <div class="organisation-name">
+          <span>INTERNATIONAL</span> 
+          <span>PENTEC</span>
+          <img src="Images/logotrans.png" alt="Logo" />
+          <span>STAL</span> 
+          <span>ASSEMBLY</span>
+        </div>
+        <div class="church-name">
+          <span>Covenant</span> 
+          <span>City</span> 
+          <span>Church</span>
+        </div>
+        <div class="organisation-name-short">
+          <img src="Images/logotrans.png" alt="Logo" />
+          <span>IPA</span>
+        </div>
+        <div class="login-register">
+          <button class="login">Login</button>
+          <div class="line"></div>
+          <button class="register">Register</button>
+        </div>
+    </header>
+
+    <div class="hero">
+      <video autoplay loop muted id="background-video">
+        <source src="Videos/videoprog.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <hr id="line1">
+
+    <div class="sunday-service">
+        <div class="name-video">
+            <span id="sunday-service">Sunday Service </span>          
+            <video  autoplay loop muted id="background-video">
+                <source src="Videos/video5.mp4" type="video/mp4">
+            </video>
+        </div>        
+        <div class="testimonies"> 
+            <img src="Images/pray.jpeg" alt="Logo" />           
+            <span class="testimony">Testimonies</span> 
+        </div>           
+    </div>
+    <div class="description">
+        <span>Description</span>
+    </div>
+    
+    <hr id="line2">
+
+    <div class="sunday-service">
+        <div class="name-video">
+            <span id="sunday-service">Hope Service </span>          
+            <video autoplay loop muted id="background-video">
+                <source src="Videos/video4.mp4" type="video/mp4">
+            </video>
+        </div>        
+        <div class="testimonies"> 
+            <img src="Images/pray2.png" alt="Logo" />           
+            <span class="testimony">Testimonies</span> 
+        </div>           
+    </div>
+    <div class="description">
+        <span>Description</span>
+    </div>
+
+    <hr id="line3">
+
+    <div class="overlay" id="menuOverlay">
+      <div class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>           
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="donations.html">Donations</a></li>
+            <li><a href="aboutUS.html">About US</a></li>
+          <li><button id="closeOverlayButton" class="close-button">X</button></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Events</a>
+        <a href="#">Ministries</a>
+        <a href="#">Sermons</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-info">
+        &copy; 2023 Church Name. All rights reserved. | Address, City, State | Phone: (123) 456-7890
+      </div>
+    </footer>
+
+</body>
+</html>

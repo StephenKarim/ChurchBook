@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="model-viewer.min.js"></script>
+  <title>Model Viewer Animation Control</title>
+</head>
+<body>
+  <model-viewer id="book" src="Models/testing2.glb" autoplay></model-viewer>
+  <img id="glow" src="Images/coneedit.png" style="opacity: 0; transition: opacity 0.7s ease; background: linear-gradient(transparent 70%, rgba(255, 255, 255, 0.6) 100%);">
+  <video id="bookvid" src="Videos/videosmall.mp4" style="opacity: 0; transition: opacity 0.7s ease;" controls></video>
+  <input type="range" id="slider" min="0" max="100" value="0" step="0.1">
+  <span id="sliderValue">0</span>
+  <button id="sermons">Sermons</button>
+  <button id="programs">Programs</button>
+  <button id="blog">Blog</button>
+  <button id="events">Events</button>
+  <button id="media">Media</button>
+  <button id="resources">Resources</button>
+  <button id="donations">Donations</button>
+  <button id="aboutus">AboutUS</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modelViewer = document.getElementById('book');
+      const slider = document.getElementById('slider');
+      const sliderValue = document.getElementById('sliderValue');
+      const hiddenImage = document.getElementById('glow'); // Get reference to the image
+      const hiddenVideo = document.getElementById('bookvid'); // Get reference to the video
+
+      let isAnimating = false;
+      let newPosition = 0;
+      let isOpacityTriggered = false;
+
+      function setAnimationTime() {
+        modelViewer.currentTime = (slider.value / 100) * modelViewer.duration;
+      }
+
+      function showHiddenElements() {
+        hiddenImage.style.opacity = '0.0'; // Set opacity of image to 0.1
+        hiddenVideo.style.opacity = '0.0'; // Set opacity of video to 0.1
+        setTimeout(function() {
+          hiddenImage.style.opacity = '0.6'; // Set opacity of image to 0.8 after 1.8 seconds
+        }, 1800);
+        setTimeout(function() {
+          hiddenVideo.style.opacity = '1.0'; // Set opacity of video to 1.0 after 2 seconds
+        }, 2000);
+      }
+
+      function goToSliderValue(value) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const currentPosition = parseFloat(slider.value);
+        const targetPosition = parseFloat(value);
+        const totalDuration = 1000;
+        let currentTime = 0;
+        const animationInterval = 10;
+
+        function animate() {
+          currentTime += animationInterval;
+          if (currentTime >= totalDuration) {
+            newPosition = targetPosition;
+            slider.value = newPosition.toFixed(1);
+            sliderValue.textContent = newPosition.toFixed(1);
+            setAnimationTime();
+            modelViewer.pause();
+            isAnimating = false;
+            return;
+          }
+
+          const progress = currentTime / totalDuration;
+          newPosition = currentPosition + progress * (targetPosition - currentPosition);
+          slider.value = newPosition.toFixed(1);
+          sliderValue.textContent = newPosition.toFixed(1);
+          setAnimationTime();
+          requestAnimationFrame(animate);
+        }
+
+        modelViewer.play();
+        requestAnimationFrame(animate);
+
+        // Show the hidden elements (image and video) after 0.5 seconds once the slider reaches 4.3
+        if (!isOpacityTriggered && value >= 4.3) {
+          isOpacityTriggered = true;
+          showHiddenElements();
+        }
+      }
+
+      document.getElementById('sermons').addEventListener('click', () => goToSliderValue(10));
+      document.getElementById('programs').addEventListener('click', () => goToSliderValue(20));
+      document.getElementById('blog').addEventListener('click', () => goToSliderValue(30));
+      document.getElementById('events').addEventListener('click', () => goToSliderValue(40));
+      document.getElementById('media').addEventListener('click', () => goToSliderValue(50));
+      document.getElementById('resources').addEventListener('click', () => goToSliderValue(60));
+      document.getElementById('donations').addEventListener('click', () => goToSliderValue(70));
+      document.getElementById('aboutus').addEventListener('click', () => goToSliderValue(80));
+
+      // Trigger the animation on page load to go to position 4.4
+      goToSliderValue(4.4);
+
+      slider.addEventListener('input', () => {
+        if (!isAnimating) {
+          newPosition = parseFloat(slider.value);
+          sliderValue.textContent = newPosition.toFixed(1);
+          setAnimationTime();
+          modelViewer.pause();
+        }
+      });
+    });
+    
+  </script>
+</body>
+</html>

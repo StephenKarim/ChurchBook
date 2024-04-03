@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      margin-bottom: 20px;
+    }
+
+    .media {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .media img {
+      max-width: 200px;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .media .text {
+      flex: 1;
+    }
+
+    .media .text h2 {
+      margin-top: 0;
+    }
+
+    .media .text p {
+      margin-bottom: 10px;
+    }
+
+    .media .text button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .location {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    #map {
+      height: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>About Us</h1>
+    <div class="content">
+      <h2>Welcome to our Church</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat diam sit amet lectus cursus, a tempor odio iaculis. Phasellus volutpat facilisis fermentum. Morbi consectetur ipsum eget nunc auctor, in luctus ex bibendum.</p>
+      <p>Sed fringilla, lectus eu congue malesuada, massa enim sollicitudin urna, nec tincidunt neque lectus sit amet neque. Mauris vestibulum auctor fermentum. Ut ac turpis in lacus lacinia finibus ut ut dolor. Cras ac tortor eget felis malesuada congue eu id lorem.</p>
+    </div>
+    <div class="media">
+      <img src="images/pastor.jpg" alt="Pastor" />
+      <div class="text">
+        <h2>Meet Our Pastor</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat diam sit amet lectus cursus, a tempor odio iaculis. Phasellus volutpat facilisis fermentum. Morbi consectetur ipsum eget nunc auctor, in luctus ex bibendum.</p>
+        <button>Watch Video</button>
+      </div>
+    </div>
+    <div class="media">
+      <div class="text">
+        <h2>Our Community</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat diam sit amet lectus cursus, a tempor odio iaculis. Phasellus volutpat facilisis fermentum. Morbi consectetur ipsum eget nunc auctor, in luctus ex bibendum.</p>
+        <button>View Gallery</button>
+      </div>
+      <img src="images/community.jpg" alt="Community" />
+    </div>
+    <div class="content">
+      <h2>Join Us for Worship</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam volutpat diam sit amet lectus cursus, a tempor odio iaculis. Phasellus volutpat facilisis fermentum. Morbi consectetur ipsum eget nunc auctor, in luctus ex bibendum.</p>
+      <p>Sed fringilla, lectus eu congue malesuada, massa enim sollicitudin urna, nec tincidunt neque lectus sit amet neque. Mauris vestibulum auctor fermentum. Ut ac turpis in lacus lacinia finibus ut ut dolor. Cras ac tortor eget felis malesuada congue eu id lorem.</p>
+    </div>
+    <div class="location">
+      <h2>Visit Us</h2>
+      <p>123 Church Street, City, State, Country</p>
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script>
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 40.712776, lng: -74.005974 },
+        zoom: 12
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>

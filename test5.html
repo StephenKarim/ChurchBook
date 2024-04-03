@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Announcement Section Slideshow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .announcement-container {
+      max-width: 700px;
+      padding: 40px;
+      overflow: hidden; /* Hide overflow to ensure smooth transition */
+      position: relative;
+      border: 5px solid red; /* Add visible border with red color */
+    }
+
+    .slides-wrapper {
+      display: flex;
+      /* Transition duration to create a smooth sliding effect */
+      transition: transform 0.3s ease;
+      transform: translateX(0); /* Set default value to 0 */
+      border: 5px solid blue; /* Add visible border with blue color */
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: flex;
+      align-items: left;
+      border-radius: 1vw;
+      border: 5px solid green; /* Add visible border with green color */
+      opacity: 0; /* Hide slides by default */
+    }
+
+    .slide.active {
+      opacity: 1; /* Show the active slide */
+    }
+
+    .rounded-rectangle {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
+      border: 5px solid yellow; /* Add visible border with yellow color */
+    }
+
+    .rounded-rectangle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .announcement-text {
+      margin-left: 20px;
+    }
+
+    .announcement-title {
+      font-size: 24px;
+      color: #333;
+      margin: 0 0 10px;
+    }
+
+    .announcement-description {
+      font-size: 18px;
+      color: #444;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      border: 5px solid purple; /* Add visible border with purple color */
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #bbb;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    /* Add active class to the dot that corresponds to the current slide */
+    .dot.active {
+      background-color: #333;
+    }
+
+    /* Add styles for arrow buttons */
+    .arrow-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .arrow-button:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    .prev-arrow {
+      left: 20px;
+    }
+
+    .next-arrow {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <section class="announcement-container">
+    <div class="slides-wrapper">
+      <div class="slide active">
+        <div class="rounded-rectangle">
+          <img src="Images/pray2.jpeg" alt="Image 1">
+        </div>
+
+        <div class="announcement-text">
+          <h2 class="announcement-title">Upcoming Event 1</h2>
+          <p class="announcement-description">Join us for the first special event at the church.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="rounded-rectangle">
+          <img src="Images/pray.jpeg" alt="Image 2">
+        </div>
+
+        <div class="announcement-text">
+          <h2 class="announcement-title">Upcoming Event 2</h2>
+          <p class="announcement-description">Join us for the second special event at the church.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more slides here -->
+
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <!-- Add more dots based on the number of slides -->
+    </div>
+    
+    <!-- Add arrow buttons -->
+    <div class="arrow-button prev-arrow" onclick="prevSlide()">&lt;</div>
+    <div class="arrow-button next-arrow" onclick="nextSlide()">&gt;</div>
+  </section>
+
+  <script>
+    // JavaScript for slideshow functionality
+    const slidesWrapper = document.querySelector('.slides-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let intervalId = null; // Variable to store the interval ID
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      // Clear the previous interval and set a new one
+      clearInterval(intervalId);
+      intervalId = setInterval(nextSlide, 5000);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => showSlide(i));
+    });
+
+    // Auto advance to the next slide every 5 seconds (adjust the time as needed)
+    intervalId = setInterval(nextSlide, 5000);
+
+    // Handle touch events for swipe gestures
+    slidesWrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    slidesWrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const minSwipeDistance = 50; // Minimum distance to consider it a swipe
+
+      if (touchEndX - touchStartX > minSwipeDistance) {
+        prevSlide();
+      } else if (touchStartX - touchEndX > minSwipeDistance) {
+        nextSlide();
+      }
+    }
+  </script>
+</body>
+</html>

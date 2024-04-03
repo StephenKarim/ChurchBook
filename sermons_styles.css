@@ -1,0 +1,409 @@
+.header {
+  display: grid; 
+  grid-template-columns: auto 1fr auto; 
+  grid-template-areas: 
+    ". organisation-name ."
+    "model church-name login-register"; 
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Set the background color with transparency */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  z-index: 999;    
+  opacity: 0.7;
+  height: 8.5vw;
+}
+
+model-viewer{
+grid-area: model;
+cursor: pointer;
+width: 14vw;
+height:100%;
+background-color:transparent;
+margin-left: -2vw;
+margin-top: -1.6vw;   
+}
+
+.organisation-name,
+.organisation-name-short {
+grid-area: organisation-name ;
+margin-top: 0.5vw; 
+font-size: 2vw;
+text-align: center; 
+font-weight: bold; 
+font-family: 'Cinzel', serif;
+  color: #fff;
+  /* text-shadow: 
+  -0.5px -0.5px 0 #fff, 
+  0.5px -0.5px 0 #fff, 
+  -0.5px 0.5px 0 #fff, 
+  0.5px 0.5px 0 #fff; */
+}
+
+.organisation-name span,
+.organisation-name-short span {
+display: inline-block;
+vertical-align: middle;
+}
+
+.organisation-name span:first-child {
+margin-right: 0.5vw;
+}
+
+.organisation-name span:last-child {
+margin-left:  0.5vw;
+}
+
+.organisation-name img,
+.organisation-name-short img {  
+height: auto; 
+width: 3vw;     
+margin-top: -0.85vw;
+margin-right: -1vw;
+margin-left: -1vw; 
+/* filter: drop-shadow(0px 0px 1px #000);  */
+vertical-align: middle;  
+}
+
+.organisation-name,
+.church-name {    
+margin-right: -5vw;
+}
+
+.church-name {  
+grid-area: church-name; 
+font-size: 5vw;
+margin-top: -1vw; 
+text-align: center;
+font-weight: bold;
+font-family: 'Fette Fraktur', serif;
+color: #fff;
+/* text-shadow: 
+-0.5px -0.5px 0 #fff, 
+0.5px -0.5px 0 #fff, 
+-0.5px 0.5px 0 #fff, 
+0.5px 0.5px 0 #fff; */
+}
+
+.login-register {
+grid-area: login-register;
+margin-top: -7.2vw;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 0.8vw
+}
+
+.login,
+.register {
+padding: 1vw 1vw;
+margin-top: -9vw;
+border: none;
+background-color: #333;
+color: #fff;
+}
+
+.login-register button {
+background-color: transparent;
+border: none;
+outline: none;
+cursor: pointer;
+font-family: 'Garamond', serif;
+font-size: 2vw;
+font-weight: bold; 
+color: #fff;    
+}
+
+.login-register .line {
+width: 0.1vw;
+height: 1.5vw;
+background-color: #fff;
+margin-right: -1.3vw;
+margin-left: -1.3vw; 
+}
+
+.login,
+.register,
+.login-register .line {
+margin-top: -1vw;
+}
+
+body {
+margin: 0;
+padding: 0;
+}
+
+.hero, .placeholder, .space, .tyre {
+height: 200px;
+width: 100%;
+background-color: #f0f0f0;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+}
+
+.hero {
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+overflow: hidden;
+}
+
+.hero video {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.hero {
+background-color: #f0f0f0;
+}
+
+.shalk {
+background-color: #d0d0d0;
+}
+
+.tyre {
+background-color: #c0c0c0;
+}
+
+.organisation-name-short {
+display: none;
+}
+
+@media (min-width: 601px) {
+
+}
+
+@media (max-width: 600px) {
+.header {
+  height: 14vw;
+  grid-template-columns: auto 1fr auto; 
+  grid-template-areas: 
+  "model organisation-name-short login-register" 
+  ". church-name login-register";    
+}
+model-viewer{
+  grid-area: model;
+  cursor: pointer;
+  width: 14vw;
+  height:100%;
+  background-color:transparent;
+  margin-left: 1.3vw;
+  margin-top: 1.7vw;   
+}
+
+.hamburger img {
+  width: 11vw;    
+  margin-top: 3.5vw;
+}
+
+.organisation-name-short {
+  grid-area: organisation-name-short;
+  display: block;
+}
+
+.organisation-name-short img {    
+  width: 8vw;
+  margin-right: -2vw;
+}
+
+.organisation-name-short span {    
+  font-size: 5vw;
+  margin-top: -0.1vw;
+  margin-left: 0.5vw;
+}
+
+.church-name {
+  font-size: 6vw;
+  margin-top: -2vw;
+  margin-left: -5vw;
+}
+
+.login-register button { 
+  font-size: 3.7vw;    
+  margin-right: 2vw;  
+  margin-top: 2vw;
+}
+
+.login-register .line,
+.register,
+.organisation-name {    
+  display: none;
+}
+
+}
+
+@font-face {
+font-family: 'Fette Fraktur';
+src: url('fette-unz-fraktur.ttf');
+
+}
+
+
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: none;
+z-index: 999;
+}
+
+.menu {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fff;
+padding: 20px;
+}
+
+.menu ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.menu ul li {
+margin-bottom: 10px;
+}
+
+.menu ul li a {
+text-decoration: none;
+color: #000;
+font-size: 18px;
+}
+
+.close-button {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 18px;
+font-weight: bold;
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+
+.Streaming-platforms {
+  display: flex; 
+  justify-content: flex-start;
+  font-weight: bold;
+  height: 5vw; 
+  background-color: rgba(192, 192, 192, 0.418); 
+}
+
+
+
+/* CSS for the "Socials" text */
+.Streaming-platforms span{  
+  font-size: 2vw;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  /* Add more styles as needed */
+}
+
+/* CSS for the images */
+.Streaming-platforms img {
+  margin-right: 1vw;
+  margin-left: 1vw;
+  width: 5vw;
+   /* Adjust the value as per your desired spacing */
+}
+
+#facebook-logo{ 
+  height: 4.5vw;
+  margin-top: 0.25vw;
+}
+
+
+.feed {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;   
+  align-items: flex-start;
+  justify-content: flex-start;  
+  background-color: rgba(192, 192, 192, 0.418);
+  height: 60vw;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4vw;
+  margin-right: 2vw;
+  margin-top: 6vw;
+  margin-bottom: 2vw;
+  height: 15vw;
+  max-width: 20vw;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.5fr; ;
+  background-color: rgba(192, 192, 192, 0.671);
+}
+
+.section span { 
+  margin-left: 2vw; 
+  font-size: 2.5vw;
+  font-weight: bold;
+}
+
+.section input{
+  height: 2vw; 
+  width: 30vw; 
+  justify-self: end;
+  align-self: center;
+}
+
+.section button{
+  height: 2vw; 
+  width: 8vw;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer {
+  background-color: slategray;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  grid-column: 1 / -1;
+}
+
+/* CSS for the footer links */
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* CSS for the footer social icons */
+.footer .social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+  font-size: 20px;
+}
+
+.space {
+  grid-column: 1 / -1;
+}
+
+#line1 {
+  width: 80vw;
+  margin-top: 0.45vw;
+}
